@@ -1,8 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const keys = require("./config/keys");
+
+// Require models
+require("./models/SourceMap");
 
 const app = express();
+
+mongoose.connect(
+  keys.mongoURI,
+  { useNewUrlParser: true }
+);
 
 app.use(bodyParser.json());
 
