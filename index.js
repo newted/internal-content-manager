@@ -19,5 +19,8 @@ app.get("/", (req, res) =>
   res.send({ message: "Welcome to Newt Internal Tools." })
 );
 
+// Require routes
+require("./routes/sourceMapRoutes")(app);
+
 const PORT = process.env.PORT || 9000;
 app.listen(PORT);
