@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 // Models
 const SourceMap = mongoose.model("sourceMaps");
+// Helpers
+const arrayToObjectById = require("../utils/helpers");
 
 module.exports = app => {
   // POST request to create mapping between media and associated Newt
@@ -22,5 +24,18 @@ module.exports = app => {
     } catch (error) {
       res.send(error);
     }
+  });
+
+  // GET request to fetch all source information
+  app.get("/api/source-map", (req, res) => {
+    SourceMap.find({}, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        const sourceMapsById = arrayToObjectById(data);
+
+        res.send(sourceMapsById);
+      }
+    });
   });
 };

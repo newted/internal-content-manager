@@ -24,6 +24,8 @@ app.get("/", (req, res) =>
 
 // Require routes
 require("./routes/sourceMapRoutes")(app);
+require("./routes/contentCreatorRoutes")(app);
+require("./routes/contentModuleRoutes")(app);
 require("./routes/contentRoutes")(app);
 
 const PORT = process.env.PORT || 9000;
