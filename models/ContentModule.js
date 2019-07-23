@@ -12,6 +12,10 @@ const contentModuleSchema = new Schema({
       ref: "Content"
     }
   ],
+  contentCreatorId: {
+    type: Schema.Types.ObjectId,
+    ref: "ContentCreator"
+  },
   dateAdded: Date,
   lastUpdated: Date
 });
