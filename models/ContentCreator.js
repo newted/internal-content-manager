@@ -9,7 +9,7 @@ const contentCreatorSchema = new Schema({
       ref: "ContentModule"
     }
   ],
-  source: {
+  sourceId: {
     type: Schema.Types.ObjectId,
     ref: "SourceMap"
   },
