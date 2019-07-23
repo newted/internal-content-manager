@@ -5,13 +5,14 @@ const SourceMap = mongoose.model("sourceMaps");
 module.exports = app => {
   // POST request to create mapping between media and associated Newt
   // content/skills/knowledge info
-  app.post("/api/sourceMap", async (req, res) => {
-    const { id, name, url } = req.body;
+  app.post("/api/source-map", async (req, res) => {
+    const { name, url } = req.body;
 
     const sourceMap = new SourceMap({
-      _id: id,
       name,
-      url
+      url,
+      dateAdded: Date.now(),
+      lastUpdated: Date.now()
     });
 
     try {

@@ -10,10 +10,11 @@ const sourceToContentInfoSchema = new Schema({
 });
 
 const sourceMapSchema = new Schema({
-  _id: String,
   name: String,
   url: String,
-  availableContent: [sourceToContentInfoSchema]
+  availableContent: [sourceToContentInfoSchema],
+  dateAdded: Date,
+  lastUpdated: Date
 });
 
 mongoose.model("sourceMaps", sourceMapSchema);
