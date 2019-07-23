@@ -5,25 +5,16 @@ const topicSchema = require("./Topic");
 const contentSchema = new Schema({
   name: String,
   url: String,
-  sourceInfo: {
-    name: String,
-    id: String
+  partOfModule: Boolean,
+  moduleId: {
+    type: Schema.Types.ObjectId,
+    ref: "ContentModule"
   },
   knowledgeMapClass: String, // Change to ObjectId ref later
   knowledgeMapSubclass: String, // ^^
   level: Number,
-  primaryTopics: {
-    type: Map,
-    of: {
-      ref: topicSchema
-    }
-  },
-  secondaryTopics: {
-    type: Map,
-    of: {
-      ref: topicSchema
-    }
-  },
+  primaryTopics: topicSchema,
+  secondaryTopics: topicSchema,
   dateAdded: Date,
   lastUpdated: Date
 });

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 // Models
 const ContentCreator = mongoose.model("contentCreators");
 const ContentModule = mongoose.model("contentModules");
+const Content = mongoose.model("content");
 
 module.exports = app => {
   // POST request to create a content creator
@@ -39,9 +40,42 @@ module.exports = app => {
     });
 
     try {
-      contentModule.save();
+      await contentModule.save();
 
       res.send(contentModule);
+    } catch (error) {
+      res.send(error);
+    }
+  });
+
+  // POST request to create a content item
+  app.post("/api/content/item", async (req, res) => {
+    const {
+      name,
+      url,
+      partOfModule,
+      moduleId,
+      level,
+      primaryTopics,
+      secondaryTopics
+    } = req.body;
+
+    const content = new Content({
+      name,
+      url,
+      partOfModule,
+      moduleId,
+      level,
+      primaryTopics,
+      secondaryTopics,
+      dateAdded: Date.now(),
+      lastUpdated: Date.now()
+    });
+
+    try {
+      await content.save();
+
+      res.send(content);
     } catch (error) {
       res.send(error);
     }
