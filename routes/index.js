@@ -4,6 +4,7 @@ module.exports = app => {
     require("./contentCreatorRoutes")(app),
     require("./contentModuleRoutes")(app),
     require("./contentRoutes")(app),
+    require("./knowledgeMapRoutes")(app),
     require("./sourceMapRoutes")(app)
   );
 };

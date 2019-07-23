@@ -6,13 +6,17 @@ const knowledgeMapModuleSchema = new Schema({
   name: String,
   catalogNumber: String,
   parentCatalog: String,
-  topics: topicSchema
+  topics: topicSchema,
+  dateAdded: Date,
+  lastUpdated: Date
 });
 
 const knowledgeMapSchema = new Schema({
   name: String,
   catalogNumber: String,
-  modules: [knowledgeMapModuleSchema]
+  modules: [knowledgeMapModuleSchema],
+  dateAdded: Date,
+  lastUpdated: Date
 });
 
 mongoose.model("knowledgeMap", knowledgeMapSchema);
