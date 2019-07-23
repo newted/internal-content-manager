@@ -10,7 +10,7 @@ const app = express();
 
 mongoose.connect(
   keys.mongoURI,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, useFindAndModify: false }
 );
 
 app.use(bodyParser.json());

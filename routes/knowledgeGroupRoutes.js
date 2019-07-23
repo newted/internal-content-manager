@@ -46,4 +46,29 @@ module.exports = app => {
       }
     });
   });
+
+  // PUT request to add a knowledge map subject into a knowledge group
+  app.put("/api/knowledge-group/:knowledgeGroupId/add-subject", (req, res) => {
+    const { knowledgeGroupId } = req.params;
+    const { knowledgeMapId } = req.body;
+
+    KnowledgeGroup.findOneAndUpdate(
+      knowledgeGroupId,
+      {
+        $push: {
+          subjects: knowledgeMapId
+        }
+      },
+      {
+        new: true
+      },
+      (error, data) => {
+        if (error) {
+          res.send(error);
+        } else {
+          res.send(data);
+        }
+      }
+    );
+  });
 };
