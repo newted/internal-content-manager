@@ -5,6 +5,10 @@ const topicSchema = require("./Topic");
 const knowledgeMapModuleSchema = new Schema({
   name: String,
   catalogNumber: String,
+  parentId: {
+    type: Schema.Types.ObjectId,
+    ref: "KnowledgeMap"
+  },
   parentCatalog: String,
   topics: topicSchema,
   dateAdded: Date,
@@ -14,6 +18,10 @@ const knowledgeMapModuleSchema = new Schema({
 const knowledgeMapSchema = new Schema({
   name: String,
   catalogNumber: String,
+  parentId: {
+    type: Schema.Types.ObjectId,
+    ref: "KnowledgeGroup"
+  },
   modules: [knowledgeMapModuleSchema],
   dateAdded: Date,
   lastUpdated: Date

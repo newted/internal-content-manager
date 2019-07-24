@@ -49,4 +49,32 @@ module.exports = app => {
       }
     });
   });
+
+  // PUT request to add content modules to knowledge maps
+  app.put("/api/knowledge-map/:knowledgeMapId/add-module", (req, res) => {
+    const { knowledgeMapId } = req.params;
+    const { knowledgeModule } = req.body;
+
+    KnowledgeMap.findOneAndUpdate(
+      knowledgeMapId,
+      {
+        $push: {
+          modules: knowledgeModule
+        },
+        $set: {
+          lastUpdated: Date.now()
+        }
+      },
+      {
+        new: true
+      },
+      (error, data) => {
+        if (error) {
+          res.send(error);
+        } else {
+          res.send(data);
+        }
+      }
+    );
+  });
 };
