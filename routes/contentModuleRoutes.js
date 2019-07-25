@@ -5,10 +5,11 @@ const arrayToObjectById = require("../utils/helpers");
 module.exports = app => {
   // POST request to create a content module
   app.post("/api/content/module", async (req, res) => {
-    const { name, type, url, contentCreatorId } = req.body;
+    const { name, subjects, type, url, contentCreatorId } = req.body;
 
     const contentModule = new ContentModule({
       name,
+      subjects,
       type,
       url,
       contentCreatorId,

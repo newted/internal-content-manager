@@ -3,7 +3,12 @@ const { Schema } = mongoose;
 
 const contentModuleSchema = new Schema({
   name: String,
-  subjects: [String], // Might want to link this to knowledge maps?
+  subjects: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "KnowledgeMap.modules"
+    }
+  ],
   type: [String],
   url: String,
   content: [
