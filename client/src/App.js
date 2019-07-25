@@ -1,8 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchKnowledgeMap } from "./actions/knowledgeMap";
 import "./App.css";
 
-function App() {
-  return <div className="App">App</div>;
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchKnowledgeMap();
+  }
+
+  render() {
+    return <div className="App">App</div>;
+  }
 }
 
-export default App;
+function mapStateToProps({ knowledgeMap }) {
+  return { knowledgeMap };
+}
+
+const mapDispatchToProps = { fetchKnowledgeMap };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
