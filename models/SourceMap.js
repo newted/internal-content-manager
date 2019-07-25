@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const sourceToContentInfoSchema = new Schema({
-  mediaId: String,
-  contentId: {
-    type: Schema.Types.ObjectId,
-    ref: "Content"
-  }
-});
+const sourceToContentInfoSchema = new Schema(
+  {
+    mediaId: String,
+    contentId: {
+      type: Schema.Types.ObjectId,
+      ref: "Content"
+    }
+  },
+  { _id: false }
+);
 
 const sourceMapSchema = new Schema({
   name: String,

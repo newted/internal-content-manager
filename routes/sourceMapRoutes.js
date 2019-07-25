@@ -38,4 +38,35 @@ module.exports = app => {
       }
     });
   });
+
+  // PUT request to add content to a source
+  app.put("/api/source-map/:sourceId/add-content", (req, res) => {
+    const { sourceId } = req.params;
+    const { mediaId, contentId } = req.body;
+
+    SourceMap.findOneAndUpdate(
+      sourceId,
+      {
+        $push: {
+          availableContent: {
+            mediaId,
+            contentId
+          }
+        },
+        $set: {
+          lastUpdated: Date.now()
+        }
+      },
+      {
+        new: true
+      },
+      (error, data) => {
+        if (error) {
+          res.send(error);
+        } else {
+          res.send(data);
+        }
+      }
+    );
+  });
 };
