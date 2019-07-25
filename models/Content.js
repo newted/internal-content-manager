@@ -10,8 +10,14 @@ const contentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "ContentModule"
   },
-  knowledgeMapClass: String, // Change to ObjectId ref later
-  knowledgeMapSubclass: String, // ^^
+  knowledgeMapId: {
+    type: Schema.Types.ObjectId,
+    ref: "KnowledgeMap"
+  },
+  knowledgeMapModuleId: {
+    type: Schema.Types.ObjectId,
+    ref: "KnowledgeMap.modules"
+  },
   level: Number,
   primaryTopics: topicSchema,
   secondaryTopics: topicSchema,

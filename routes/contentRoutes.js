@@ -10,6 +10,8 @@ module.exports = app => {
       url,
       partOfModule,
       moduleId,
+      knowledgeMapId,
+      knowledgeMapModuleId,
       level,
       primaryTopics,
       secondaryTopics
@@ -20,6 +22,8 @@ module.exports = app => {
       url,
       partOfModule,
       moduleId,
+      knowledgeMapId,
+      knowledgeMapModuleId,
       level,
       primaryTopics,
       secondaryTopics,
