@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const sourceToContentInfoSchema = new Schema(
+const availableContentSchema = new Schema(
   {
     mediaId: String,
     contentId: {
@@ -12,12 +12,12 @@ const sourceToContentInfoSchema = new Schema(
   { _id: false }
 );
 
-const sourceMapSchema = new Schema({
+const sourceSchema = new Schema({
   name: String,
   url: String,
-  availableContent: [sourceToContentInfoSchema],
+  availableContent: [availableContentSchema],
   dateAdded: Date,
   lastUpdated: Date
 });
 
-mongoose.model("sourceMaps", sourceMapSchema);
+mongoose.model("sources", sourceSchema);

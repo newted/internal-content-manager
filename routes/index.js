@@ -6,6 +6,6 @@ module.exports = app => {
     require("./contentRoutes")(app),
     require("./knowledgeGroupRoutes")(app),
     require("./knowledgeMapRoutes")(app),
-    require("./sourceMapRoutes")(app)
+    require("./sourceRoutes")(app)
   );
 };

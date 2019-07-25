@@ -11,7 +11,7 @@ const contentCreatorSchema = new Schema({
   ],
   sourceId: {
     type: Schema.Types.ObjectId,
-    ref: "SourceMap"
+    ref: "Source"
   },
   url: String,
   dateAdded: Date,

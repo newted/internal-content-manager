@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 // Models
-const SourceMap = mongoose.model("sourceMaps");
+const Source = mongoose.model("sources");
 // Helpers
 const arrayToObjectById = require("../utils/helpers");
 
 module.exports = app => {
   // POST request to create mapping between media and associated Newt
   // content/skills/knowledge info
-  app.post("/api/source-map", async (req, res) => {
+  app.post("/api/sources", async (req, res) => {
     const { name, url } = req.body;
 
-    const sourceMap = new SourceMap({
+    const source = new Source({
       name,
       url,
       dateAdded: Date.now(),
@@ -18,33 +18,33 @@ module.exports = app => {
     });
 
     try {
-      await sourceMap.save();
+      await source.save();
 
-      res.send(sourceMap);
+      res.send(source);
     } catch (error) {
       res.send(error);
     }
   });
 
   // GET request to fetch all source information
-  app.get("/api/source-map", (req, res) => {
-    SourceMap.find({}, (error, data) => {
+  app.get("/api/sources", (req, res) => {
+    Source.find({}, (error, data) => {
       if (error) {
         res.send(error);
       } else {
-        const sourceMapsById = arrayToObjectById(data);
+        const sourcesById = arrayToObjectById(data);
 
-        res.send(sourceMapsById);
+        res.send(sourcesById);
       }
     });
   });
 
   // PUT request to add content to a source
-  app.put("/api/source-map/:sourceId/add-content", (req, res) => {
+  app.put("/api/sources/:sourceId/add-content", (req, res) => {
     const { sourceId } = req.params;
     const { mediaId, contentId } = req.body;
 
-    SourceMap.findOneAndUpdate(
+    Source.findOneAndUpdate(
       sourceId,
       {
         $push: {

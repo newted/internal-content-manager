@@ -5,5 +5,5 @@ module.exports = Object.assign(
   require("./ContentModule"),
   require("./KnowledgeGroup"),
   require("./KnowledgeMap"),
-  require("./SourceMap")
+  require("./Source")
 );
