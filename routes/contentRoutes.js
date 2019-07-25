@@ -41,7 +41,7 @@ module.exports = app => {
   });
 
   // GET request to fetch content items
-  app.get("/api/content/item", (req, res) => {
+  app.get("/api/content/item/by-id", (req, res) => {
     Content.find({}, (error, data) => {
       if (error) {
         res.send(error);
