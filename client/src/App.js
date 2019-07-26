@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchKnowledgeMap } from "./actions/knowledgeMap";
+import { fetchKnowledgeSubjects } from "./actions/knowledgeSubject";
 import { fetchContent } from "./actions/content";
 import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchKnowledgeMap();
+    this.props.fetchKnowledgeSubjects();
     this.props.fetchContent();
   }
 
@@ -17,19 +17,19 @@ class App extends Component {
           readOnly
           style={{ width: "50%" }}
           rows={50}
-          value={JSON.stringify(this.props.knowledgeMap, null, 4)}
+          value={JSON.stringify(this.props.knowledgeSubjects, null, 4)}
         />
       </div>
     );
   }
 }
 
-function mapStateToProps({ knowledgeMap }) {
-  return { knowledgeMap };
+function mapStateToProps({ knowledgeSubjects }) {
+  return { knowledgeSubjects };
 }
 
 const mapDispatchToProps = {
-  fetchKnowledgeMap,
+  fetchKnowledgeSubjects,
   fetchContent
 };
 

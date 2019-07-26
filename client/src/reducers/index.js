@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import knowledgeMapReducer from "./knowledgeMapReducer";
+import knowledgeSubjectReducer from "./knowledgeSubjectReducer";
 import contentReducer from "./contentReducer";
 
 export default combineReducers({
-  knowledgeMap: knowledgeMapReducer,
+  knowledgeSubjects: knowledgeSubjectReducer,
   content: contentReducer
 });

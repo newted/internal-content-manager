@@ -1,8 +1,8 @@
-import { FETCH_KNOWLEDGE_MAP } from "../actions/knowledgeMap";
+import { FETCH_KNOWLEDGE_SUBJECTS } from "../actions/knowledgeSubject";
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case FETCH_KNOWLEDGE_MAP:
+    case FETCH_KNOWLEDGE_SUBJECTS:
       return {
         ...state,
         ...action.payload
