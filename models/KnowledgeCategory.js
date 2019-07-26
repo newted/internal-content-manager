@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const knowledgeGroupSchema = new Schema({
+const knowledgeCategorySchema = new Schema({
   name: String,
   subjects: [
     {
       type: Schema.Types.ObjectId,
-      ref: "KnowledgeMap"
+      ref: "KnowledgeSubject"
     }
   ]
 });
 
-mongoose.model("knowledgeGroup", knowledgeGroupSchema);
+mongoose.model("knowledgeCategories", knowledgeCategorySchema);

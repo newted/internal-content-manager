@@ -4,8 +4,8 @@ module.exports = app => {
     require("./contentCreatorRoutes")(app),
     require("./contentModuleRoutes")(app),
     require("./contentRoutes")(app),
-    require("./knowledgeGroupRoutes")(app),
-    require("./knowledgeMapRoutes")(app),
+    require("./knowledgeCategoryRoutes")(app),
+    require("./knowledgeSubjectRoutes")(app),
     require("./sourceRoutes")(app)
   );
 };

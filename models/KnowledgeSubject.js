@@ -2,29 +2,28 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const topicSchema = require("./Topic");
 
-const knowledgeMapModuleSchema = new Schema({
+const knowledgeModuleSchema = new Schema({
   name: String,
   catalogNumber: String,
-  parentId: {
+  subjectId: {
     type: Schema.Types.ObjectId,
-    ref: "KnowledgeMap"
+    ref: "KnowledgeSubject"
   },
-  parentCatalog: String,
   topics: topicSchema,
   dateAdded: Date,
   lastUpdated: Date
 });
 
-const knowledgeMapSchema = new Schema({
+const knowledgeSubjectSchema = new Schema({
   name: String,
   catalogNumber: String,
-  parentId: {
+  categoryId: {
     type: Schema.Types.ObjectId,
-    ref: "KnowledgeGroup"
+    ref: "KnowledgeCategory"
   },
-  modules: [knowledgeMapModuleSchema],
+  modules: [knowledgeModuleSchema],
   dateAdded: Date,
   lastUpdated: Date
 });
 
-mongoose.model("knowledgeMap", knowledgeMapSchema);
+mongoose.model("knowledgeSubjects", knowledgeSubjectSchema);
