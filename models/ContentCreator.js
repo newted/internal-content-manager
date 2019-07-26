@@ -3,10 +3,18 @@ const { Schema } = mongoose;
 
 const contentCreatorSchema = new Schema({
   name: String,
-  modules: [
+  // Reference to Content Series
+  series: [
     {
       type: Schema.Types.ObjectId,
-      ref: "ContentModule"
+      ref: "ContentSeries"
+    }
+  ],
+  // Reference to Content that are not part of a Series
+  individualContent: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Content"
     }
   ],
   sourceId: {

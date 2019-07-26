@@ -2,7 +2,7 @@ module.exports = app => {
   Object.assign(
     {},
     require("./contentCreatorRoutes")(app),
-    require("./contentModuleRoutes")(app),
+    require("./contentSeriesRoutes")(app),
     require("./contentRoutes")(app),
     require("./knowledgeCategoryRoutes")(app),
     require("./knowledgeSubjectRoutes")(app),

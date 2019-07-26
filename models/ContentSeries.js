@@ -1,12 +1,20 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const contentModuleSchema = new Schema({
+const contentSeriesSchema = new Schema({
   name: String,
+  // Reference to Knowledge Subjects
   subjects: [
     {
       type: Schema.Types.ObjectId,
-      ref: "KnowledgeMap.modules"
+      ref: "KnowledgeSubject"
+    }
+  ],
+  // Reference to Knowledge Modules
+  modules: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "KnowledgeSubject.modules"
     }
   ],
   type: [String],
@@ -25,4 +33,4 @@ const contentModuleSchema = new Schema({
   lastUpdated: Date
 });
 
-mongoose.model("contentModules", contentModuleSchema);
+mongoose.model("contentSeries", contentSeriesSchema);

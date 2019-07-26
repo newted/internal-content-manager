@@ -4,7 +4,7 @@ const arrayToObjectById = require("../utils/helpers");
 
 module.exports = app => {
   // POST request to create a content creator
-  app.post("/api/content/creator", async (req, res) => {
+  app.post("/api/content/creators", async (req, res) => {
     const { name, sourceId, url } = req.body;
 
     const contentCreator = new ContentCreator({
@@ -25,7 +25,7 @@ module.exports = app => {
   });
 
   // GET request to fetch content creators
-  app.get("/api/content/creator", (req, res) => {
+  app.get("/api/content/creators/by-id", (req, res) => {
     ContentCreator.find({}, (error, data) => {
       if (error) {
         res.send(error);
