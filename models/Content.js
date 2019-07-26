@@ -5,18 +5,26 @@ const topicSchema = require("./Topic");
 const contentSchema = new Schema({
   name: String,
   url: String,
-  partOfModule: Boolean,
-  moduleId: {
+  partOfSeries: Boolean,
+  contentSeriesId: {
     type: Schema.Types.ObjectId,
-    ref: "ContentModule"
+    ref: "ContentSeries"
   },
-  knowledgeMapId: {
+  contentCreatorId: {
     type: Schema.Types.ObjectId,
-    ref: "KnowledgeMap"
+    ref: "ContentCreator"
   },
-  knowledgeMapModuleId: {
+  sourceId: {
     type: Schema.Types.ObjectId,
-    ref: "KnowledgeMap.modules"
+    ref: "Source"
+  },
+  knowledgeSubjectId: {
+    type: Schema.Types.ObjectId,
+    ref: "KnowledgeSubject"
+  },
+  knowledgeModuleId: {
+    type: Schema.Types.ObjectId,
+    ref: "KnowledgeSubject.modules"
   },
   level: Number,
   primaryTopics: topicSchema,
