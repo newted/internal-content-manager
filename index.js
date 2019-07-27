@@ -4,14 +4,14 @@ const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 
 // Require models
-require("./models");
+require("newt-knowledge-map-models");
 
 const app = express();
 
-mongoose.connect(
-  keys.mongoURI,
-  { useNewUrlParser: true, useFindAndModify: false }
-);
+mongoose.connect(keys.mongoURI, {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 app.use(bodyParser.json());
 
