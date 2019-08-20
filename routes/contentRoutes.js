@@ -63,7 +63,7 @@ module.exports = app => {
 
     Content.findByIdAndUpdate(
       contentId,
-      { data },
+      data,
       { new: true },
       (error, content) => {
         if (error) {
