@@ -55,4 +55,23 @@ module.exports = app => {
       }
     });
   });
+
+  // PUT request o update a content item
+  app.put(`/api/content/:contentId/update`, (req, res) => {
+    const { contentId } = req.params;
+    const data = req.body;
+
+    Content.findByIdAndUpdate(
+      contentId,
+      { data },
+      { new: true },
+      (error, content) => {
+        if (error) {
+          res.send(error);
+        } else {
+          res.send(content);
+        }
+      }
+    );
+  });
 };
