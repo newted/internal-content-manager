@@ -1,39 +1,29 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchKnowledgeSubjects } from "./actions/knowledgeSubject";
-import { fetchContent } from "./actions/content";
-import "./App.css";
+// Components
+import Container from "react-bootstrap/Container";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+// Styling
+import styles from "./App.module.css";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchKnowledgeSubjects();
-    this.props.fetchContent();
-  }
-
   render() {
     return (
-      <div className="App">
-        <textarea
-          readOnly
-          style={{ width: "50%" }}
-          rows={30}
-          value={JSON.stringify(this.props.knowledgeSubjects, null, 4)}
-        />
-      </div>
+      <Container className={styles.container}>
+        <Tabs defaultActiveKey="content" id="main-content-manager-tabs">
+          <Tab eventKey="content" title="Content">
+            Content stuff
+          </Tab>
+          <Tab eventKey="content-series" title="Content Series">
+            Content series stuff
+          </Tab>
+          <Tab eventKey="content-creator" title="Content Creator">
+            Content creator stuff
+          </Tab>
+        </Tabs>
+      </Container>
     );
   }
 }
 
-function mapStateToProps({ knowledgeSubjects }) {
-  return { knowledgeSubjects };
-}
-
-const mapDispatchToProps = {
-  fetchKnowledgeSubjects,
-  fetchContent
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
