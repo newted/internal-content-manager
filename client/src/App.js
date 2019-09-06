@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import CustomTabContent from "./containers/CustomTabContent";
 // Styling
 import styles from "./App.module.css";
 
@@ -12,13 +13,13 @@ class App extends Component {
       <Container className={styles.container}>
         <Tabs defaultActiveKey="content" id="main-content-manager-tabs">
           <Tab eventKey="content" title="Content">
-            Content stuff
+            <CustomTabContent />
           </Tab>
           <Tab eventKey="content-series" title="Content Series">
-            Content series stuff
+            <CustomTabContent />
           </Tab>
           <Tab eventKey="content-creator" title="Content Creator">
-            Content creator stuff
+            <CustomTabContent />
           </Tab>
         </Tabs>
       </Container>
