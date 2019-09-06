@@ -8,7 +8,7 @@ require("newt-knowledge-map-models");
 
 const app = express();
 
-mongoose.connect(keys.mongoURI, {
+mongoose.connect(keys.newMongoURI, {
   useNewUrlParser: true,
   useFindAndModify: false
 });

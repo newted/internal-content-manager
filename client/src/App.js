@@ -16,7 +16,7 @@ class App extends Component {
         <textarea
           readOnly
           style={{ width: "50%" }}
-          rows={50}
+          rows={30}
           value={JSON.stringify(this.props.knowledgeSubjects, null, 4)}
         />
       </div>
