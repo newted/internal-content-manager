@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Container className={styles.container}>
-        <Tabs defaultActiveKey="content" id="main-content-manager-tabs">
+        <Tabs defaultActiveKey="source" id="main-content-manager-tabs">
           <Tab eventKey="content" title="Content">
             <CustomTabContent model="content" />
           </Tab>
