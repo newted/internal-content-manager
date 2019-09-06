@@ -1,9 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as yup from "yup";
 // Components
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+// API
+import { createSource } from "../../actions/source";
 
 const schema = yup.object({
   name: yup.string().required(),
@@ -15,10 +18,10 @@ const initialValues = {
   url: ""
 };
 
-const CreateSourceForm = () => (
+const CreateSourceForm = ({ createSource }) => (
   <Formik
     validationSchema={schema}
-    onSubmit={values => console.log(values)}
+    onSubmit={values => createSource(values)}
     initialValues={initialValues}
   >
     {({
@@ -69,4 +72,9 @@ const CreateSourceForm = () => (
   </Formik>
 );
 
-export default CreateSourceForm;
+const mapDispatchToProps = { createSource };
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateSourceForm);
