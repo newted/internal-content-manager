@@ -7,6 +7,7 @@ import TabContainer from "react-bootstrap/TabContainer";
 import TabContent from "react-bootstrap/TabContent";
 import TabPane from "react-bootstrap/TabPane";
 import CreateForms from "./CreateForms";
+import FetchTreeViewer from "./FetchTreeViewer";
 // Styling
 import styles from "./CustomTabContent.module.css";
 
@@ -35,7 +36,9 @@ const CustomTabContent = ({ model }) => (
             <TabPane eventKey="create">
               <CreateForms model={model} />
             </TabPane>
-            <TabPane eventKey="fetch">Fetch...</TabPane>
+            <TabPane eventKey="fetch">
+              <FetchTreeViewer />
+            </TabPane>
             <TabPane eventKey="update">Update...</TabPane>
             <TabPane eventKey="delete">Delete...</TabPane>
           </TabContent>
