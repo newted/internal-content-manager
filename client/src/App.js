@@ -13,13 +13,16 @@ class App extends Component {
       <Container className={styles.container}>
         <Tabs defaultActiveKey="content" id="main-content-manager-tabs">
           <Tab eventKey="content" title="Content">
-            <CustomTabContent />
+            <CustomTabContent model="content" />
           </Tab>
           <Tab eventKey="content-series" title="Content Series">
-            <CustomTabContent />
+            <CustomTabContent model="content-series" />
           </Tab>
           <Tab eventKey="content-creator" title="Content Creator">
-            <CustomTabContent />
+            <CustomTabContent model="content-creator" />
+          </Tab>
+          <Tab eventKey="source" title="Source">
+            <CustomTabContent model="source" />
           </Tab>
         </Tabs>
       </Container>

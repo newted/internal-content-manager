@@ -6,10 +6,11 @@ import Nav from "react-bootstrap/Nav";
 import TabContainer from "react-bootstrap/TabContainer";
 import TabContent from "react-bootstrap/TabContent";
 import TabPane from "react-bootstrap/TabPane";
+import CreateForms from "./CreateForms";
 // Styling
 import styles from "./CustomTabContent.module.css";
 
-const CustomTabContent = () => (
+const CustomTabContent = ({ model }) => (
   <div className={styles.customTabContent}>
     <TabContainer id="models-left-tab-nav" defaultActiveKey="create">
       <Row style={{ minHeight: "500px", marginRight: "0px" }}>
@@ -31,7 +32,9 @@ const CustomTabContent = () => (
         </Col>
         <Col sm={9} className={styles.tabPane}>
           <TabContent>
-            <TabPane eventKey="create">Create...</TabPane>
+            <TabPane eventKey="create">
+              <CreateForms model={model} />
+            </TabPane>
             <TabPane eventKey="fetch">Fetch...</TabPane>
             <TabPane eventKey="update">Update...</TabPane>
             <TabPane eventKey="delete">Delete...</TabPane>
