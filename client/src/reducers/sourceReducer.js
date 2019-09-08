@@ -8,6 +8,11 @@ export default function(state = {}, action) {
         ...state,
         ...action.payload
       };
+    case "UPDATE_SOURCE":
+      return {
+        ...state,
+        [action.payload._id]: action.payload
+      };
     default:
       return state;
   }

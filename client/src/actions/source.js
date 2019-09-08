@@ -16,15 +16,12 @@ export const createSource = values => async dispatch => {
   }
 };
 
-export const fetchSources = () => async dispatch => {
+export async function updateSource(sourceId, values) {
   try {
-    const res = await axios.get("/api/sources");
+    const res = await axios.put(`/api/sources/${sourceId}/update`, values);
 
-    dispatch({
-      type: FETCH_SOURCES,
-      payload: res.data
-    });
+    return res.data;
   } catch (error) {
     console.error(error);
   }
-};
+}

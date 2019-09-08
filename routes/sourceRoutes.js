@@ -39,6 +39,20 @@ module.exports = app => {
     });
   });
 
+  app.put("/api/sources/:sourceId/update", (req, res) => {
+    const { sourceId } = req.params;
+    const data = req.body;
+    data.lastUpdated = Date.now();
+
+    Source.findByIdAndUpdate(sourceId, data, { new: true }, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(data);
+      }
+    });
+  });
+
   // PUT request to add content to a source
   app.put("/api/sources/:sourceId/add-content", (req, res) => {
     const { sourceId } = req.params;
