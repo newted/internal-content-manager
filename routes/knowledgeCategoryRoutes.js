@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const KnowledgeCategory = mongoose.model("knowledgeCategories");
+const KnowledgeCategory = mongoose.model("knowledge-categories");
 const arrayToObjectById = require("../utils/helpers");
 
 module.exports = app => {

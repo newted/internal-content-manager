@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ContentSeries = mongoose.model("contentSeries");
+const ContentSeries = mongoose.model("content-series");
 const arrayToObjectById = require("../utils/helpers");
 
 module.exports = app => {

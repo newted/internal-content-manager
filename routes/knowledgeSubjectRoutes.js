@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const KnowledgeSubject = mongoose.model("knowledgeSubjects");
+const KnowledgeSubject = mongoose.model("knowledge-subjects");
 const arrayToObjectById = require("../utils/helpers");
 
 module.exports = app => {
